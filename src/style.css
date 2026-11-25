@@ -1,0 +1,127 @@
+:root {
+  --bg: #1c1712;
+  --panel: #2a2118;
+  --panel-2: #362a1d;
+  --line: #4a3a28;
+  --fg: #e8dcc4;
+  --muted: #a89578;
+  --accent: #d9a441;
+  --accent-2: #e8c270;
+  --good: #7fae5a;
+  --warn: #d9a441;
+  --bad: #c85a4a;
+  --water: #5d8fa0;
+  --silk: #f2ead6;
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  font-size: 14px;
+}
+#app { display: flex; flex-direction: column; height: 100vh; }
+#topbar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 8px 16px;
+  background: linear-gradient(180deg, #33271a, #241c13);
+  border-bottom: 2px solid var(--line);
+  flex-wrap: wrap;
+}
+.brand { font-size: 18px; font-weight: 700; color: var(--accent-2); white-space: nowrap; }
+.brand span { font-size: 12px; color: var(--muted); font-weight: 400; }
+#tabs { display: flex; gap: 4px; }
+.tab {
+  background: var(--panel-2);
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-bottom: none;
+  padding: 7px 16px;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+  font-size: 14px;
+}
+.tab:hover { color: var(--fg); }
+.tab.active { background: var(--bg); color: var(--accent-2); border-color: var(--accent); }
+#hud { display: flex; align-items: center; gap: 14px; margin-left: auto; flex-wrap: wrap; }
+#hud span { color: var(--accent-2); font-variant-numeric: tabular-nums; }
+.ctl { display: flex; align-items: center; gap: 6px; color: var(--muted); }
+.ctl em { color: var(--fg); font-style: normal; font-variant-numeric: tabular-nums; width: 3.2em; }
+input[type='range'] { width: 90px; accent-color: var(--accent); }
+select, button.btn {
+  background: var(--panel-2);
+  color: var(--fg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+button.btn:hover, select:hover { border-color: var(--accent); }
+button.btn.primary { background: #5a4322; border-color: var(--accent); color: var(--accent-2); font-weight: 600; }
+button.btn.danger { border-color: var(--bad); color: #e89a8e; }
+#hud-pause { min-width: 64px; }
+#stage { position: relative; flex: 1; min-height: 0; }
+#game-canvas { display: block; width: 100%; height: 100%; cursor: crosshair; }
+#hint-bar {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  background: rgba(20, 15, 10, 0.75);
+  padding: 6px 10px;
+  border-radius: 5px;
+  pointer-events: none;
+  max-width: 70%;
+}
+#toast-layer { position: absolute; right: 14px; top: 12px; display: flex; flex-direction: column; gap: 6px; pointer-events: none; }
+.toast {
+  background: rgba(40, 30, 18, 0.92);
+  border-left: 3px solid var(--accent);
+  padding: 7px 12px;
+  border-radius: 4px;
+  font-size: 12.5px;
+  animation: toast-in 0.25s ease;
+}
+.toast.bad { border-left-color: var(--bad); }
+.toast.good { border-left-color: var(--good); }
+@keyframes toast-in { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: none; } }
+.overlay-panel {
+  position: absolute;
+  background: rgba(30, 23, 15, 0.96);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: var(--fg);
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+.overlay-panel h4 { margin: 0 0 6px; color: var(--accent-2); font-size: 13.5px; }
+.overlay-panel .row { display: flex; gap: 10px; align-items: center; margin: 4px 0; }
+.overlay-panel button { margin-top: 6px; }
+#dayover {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 9, 6, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+#dayover .card {
+  background: var(--panel);
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  padding: 26px 34px;
+  max-width: 520px;
+}
+#dayover h2 { margin: 0 0 12px; color: var(--accent-2); }
+#dayover table { width: 100%; border-collapse: collapse; }
+#dayover td { padding: 4px 8px; border-bottom: 1px solid var(--line); }
+#dayover td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+#dayover .wage { font-size: 22px; color: var(--accent-2); font-weight: 700; }
+[hidden] { display: none !important; }

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>老缫丝厂 · 挡车工一日</title>
+  </head>
+  <body>
+    <div id="app">
+      <header id="topbar">
+        <div class="brand">老缫丝厂 <span>· 缫丝车间挡车工</span></div>
+        <nav id="tabs">
+          <button class="tab active" data-page="workshop">缫丝车间</button>
+          <button class="tab" data-page="cooking">煮茧</button>
+          <button class="tab" data-page="monitor">单绪监看</button>
+          <button class="tab" data-page="payroll">工钱结算</button>
+        </nav>
+        <div id="hud">
+          <span id="hud-clock">时辰 --:--</span>
+          <span id="hud-pool">熟茧 0</span>
+          <span id="hud-break">断头 0</span>
+          <label class="ctl">车速
+            <input id="hud-speed" type="range" min="0.8" max="2.2" step="0.1" value="1.5" />
+            <em id="hud-speed-val">1.5</em>m/s</label>
+          <label class="ctl">时辰倍速
+            <select id="hud-scale">
+              <option value="1">1×</option>
+              <option value="4">4×</option>
+              <option value="8" selected>8×</option>
+              <option value="16">16×</option>
+              <option value="24">24×</option>
+            </select></label>
+          <button id="hud-pause">暂停</button>
+        </div>
+      </header>
+      <main id="stage">
+        <canvas id="game-canvas"></canvas>
+        <div id="toast-layer"></div>
+        <div id="hint-bar"></div>
+      </main>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

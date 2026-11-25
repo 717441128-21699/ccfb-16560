@@ -1,0 +1,20 @@
+{
+  "name": "silk-reeling-mill",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "老缫丝厂挡车工模拟游戏：煮茧、索绪理绪、添绪、单绪纤度监看与工钱结算",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "perf": "vitest run perf -t"
+  },
+  "devDependencies": {
+    "jsdom": "^31.0.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7",
+    "vitest": "^3.0.2"
+  }
+}
